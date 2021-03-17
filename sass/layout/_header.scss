@@ -96,7 +96,7 @@
             height: 20px;
             width: 20px;
 
-            background-image: url("../../../assets/shared/mobile/menu.svg");
+            background-image: url("../../assets/shared/mobile/menu.svg");
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -116,7 +116,7 @@
     }
 
     &.active > .container &__burger-image {
-        background-image: url("../../../assets/shared/mobile/close.svg");
+        background-image: url("../../assets/shared/mobile/close.svg");
     }
 
     &.active > .container &__nav,
