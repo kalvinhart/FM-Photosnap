@@ -1,0 +1,60 @@
+.btn {
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 30px;
+
+    transition: background-color 0.2s ease;
+
+    &-dark {
+        background-color: $clr-black;
+        color: $clr-white;
+
+        &-small {
+            color: $clr-black;
+        }
+    }
+
+    &-light {
+        background-color: $clr-white;
+        color: $clr-black;
+
+        &-small {
+            color: $clr-white
+        }
+    }
+
+    &-light,
+    &-dark {
+        width: 160px;
+        height: 40px;
+        padding: 5px 10px;
+
+        letter-spacing: 2.5px;
+    }
+
+    &-light-small,
+    &-dark-small {
+        display: flex;
+        align-items: center;
+
+        letter-spacing: 2px;
+
+        & img {
+            margin-left: 10px;
+        }
+    }
+
+    &-light:hover,
+    &-dark:hover {
+        background-color: $clr-light-grey;
+        color: $clr-black;
+    }
+
+    &-light-small:hover,
+    &-dark-small:hover {
+        text-decoration: underline;
+    }
+}

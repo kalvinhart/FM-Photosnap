@@ -1,0 +1,165 @@
+.pricing {
+    padding: 60px 0;
+
+    &__toggle-wrapper {
+        width: 200px;
+        margin:0 auto 20px auto;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-cards {
+
+        @media only screen and (min-width: $bp-large) {
+            height: 470px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        & > *:not(:last-child) {
+
+            @media only screen and (min-width: $bp-small) {
+                margin-bottom: 20px;
+            }
+
+            @media only screen and (min-width: $bp-large) {
+                margin: 0 20px 0 0;
+            }
+        }
+    }
+
+    &-card {
+        padding: 50px 30px;
+
+        background-color: $clr-very-light-grey;
+        text-align: center;
+
+        transition: all 0.2s ease;
+
+        @media only screen and (min-width: $bp-small) {
+            position: relative;
+            text-align: left;
+        }
+
+        @media only screen and (min-width: $bp-large) {
+            text-align: center;
+            width: 350px;
+        }
+
+        &__container {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @media only screen and (min-width: $bp-small) {
+                align-items: flex-start;
+            }
+
+            @media only screen and (min-width: $bp-large) {
+                align-items: center;
+            }
+        }
+
+        &__title {
+            margin-bottom: 20px;
+        }
+
+        &__text {
+            margin-bottom: 40px;
+
+            @media only screen and (min-width: $bp-small) {
+                max-width: 270px;
+            }
+        }
+
+        &__cost {
+            margin-bottom: 20px;
+
+            @media only screen and (min-width: $bp-small) {
+                position: absolute;
+                top: 50px; // These position values match the padding within the card element.
+                right: 30px; //
+
+                text-align: right;
+            }
+
+            @media only screen and (min-width: $bp-large) {
+                position: static;
+                top: unset;
+                left: unset;
+
+                text-align: center;
+            }
+
+            & .price {
+                display: block;
+                margin-bottom: 10px;
+
+                font-size: 40px;
+                font-weight: 700;
+            }
+        }
+
+        &.active {
+            position: relative;
+            background-color: $clr-black;
+
+            @media only screen and (min-width: $bp-large) {
+                height: 470px;
+            }
+
+            &::before {
+                @include purple-line;
+                top: 0;
+                left: 0;
+                width: 100%;
+
+                @media only screen and (min-width: $bp-small) {
+                    width: 300px;
+                    top: 49%; // minus 1% to fix small gap;
+                    left: -150px; // half the width of line
+                    transform: rotate(90deg);
+                }
+
+                @media only screen and (min-width: $bp-large) {
+                    width: 350px;
+                    top: 0;
+                    left: 0;
+                    transform: none;
+                }
+            }
+        }
+
+        &.active &__container {
+            color: $clr-white;
+        }
+
+        &.active &__container &__text,
+        &.active &__container &__cost span:not(:first-child) {
+            color: $clr-white;
+            opacity: 0.6;
+        }
+    }      
+}
+
+.compare {
+    padding: 60px 0;
+
+    &__title {
+        display: none;
+
+        @media only screen and (min-width: $bp-small) {
+            margin-bottom: 60px;
+
+            display: block;
+
+            text-align: center;
+        }
+    }
+}

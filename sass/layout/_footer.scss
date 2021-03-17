@@ -1,0 +1,85 @@
+.footer {
+    background-color: $clr-black;
+
+    & .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        padding: 40px 0;
+    
+        @media only screen and (min-width: $bp-small) {
+            display: grid;
+            grid-template-areas: "logo button"
+                                 "nav nav"
+                                 "socials copyright";
+    
+            padding: 60px 0;
+        }
+    
+        @media only screen and (min-width: $bp-large) {
+            grid-template-areas: "logo nav button"
+                                 ". nav ."
+                                 "socials nav copyright";
+            grid-template-columns: max-content 1fr max-content;
+        }
+    }
+
+    &__logo {
+        margin-bottom: 30px;
+
+        @media only screen and (min-width: $bp-small) {
+            grid-area: logo;
+            margin-bottom: 0;
+        }
+    }
+
+    &__socials {
+        width: 150px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media only screen and (min-width: $bp-small) {
+            grid-area: socials;
+        }
+
+        & a {
+            position: relative;
+            text-decoration: none;
+        }
+
+        & a img {
+            display: inline;
+        }
+
+        & a > svg {
+            position: absolute;
+
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0;
+            }
+        }
+    }
+
+    & .btn {
+        margin-bottom: 20px;
+
+        @media only screen and (min-width: $bp-small) {
+            grid-area: button;
+            justify-self: end;
+            margin-bottom: 0;
+        }
+    }
+
+    &__copyright {
+        
+        @media only screen and (min-width: $bp-small) {
+            grid-area: copyright;
+            justify-self: end;
+        }
+    }
+}

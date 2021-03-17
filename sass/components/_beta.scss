@@ -1,0 +1,56 @@
+.beta {
+    position: relative;
+
+    height: 288px;
+    padding: 30px;
+
+    background-image: url("../../assets/shared/mobile/bg-beta.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media only screen and (min-width: $bp-small) {
+        background-image: url("../../assets/shared/tablet/bg-beta.jpg");
+    }
+
+    @media only screen and (min-width: $bp-large) {
+        background-image: url("../../assets/shared/desktop/bg-beta.jpg");
+    }
+
+    & > .container {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        @media only screen and (min-width: $bp-small) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__title {
+        max-width: 310px;
+        margin-bottom: 20px;
+
+        @media only screen and (min-width: $bp-small) {
+            max-width: 400px;
+            margin-bottom: 0;
+        }
+    }
+
+    &::before {
+        @include purple-line;
+        top: 0;
+
+        @media only screen and (min-width: $bp-small) {
+            width: 288px;
+            top: 49%; // -1% extra to fix small gap at the top
+            left: -141px; // Half of the width, minus half of the height
+            transform: rotate(90deg);
+        }
+    }
+}

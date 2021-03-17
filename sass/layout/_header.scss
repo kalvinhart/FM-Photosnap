@@ -1,0 +1,131 @@
+.header {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: $header-height;
+
+    background-color: $clr-white;
+
+    & > .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__nav {
+        position: fixed;
+        top: $header-height;
+        left: 0;
+
+        width: 100%;
+        padding: 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: $clr-white;
+
+        visibility: hidden;
+
+        transform: translateY(-100%);
+        transition: transform 0.2s ease;
+
+        & > .btn {
+            width: 100%;
+
+            @media only screen and (min-width: $bp-small) {
+                width: 160px;
+            }
+        }
+        
+        & > .nav-list {
+            border-bottom: 1px solid $clr-light-grey;
+
+            @media only screen and (min-width: $bp-small) {
+                border-bottom: none;
+            }
+        }
+
+        & > * {
+            margin-bottom: 20px;
+
+            @media only screen and (min-width: $bp-small) {
+                margin: 0;
+            }
+        }
+
+        @media only screen and (min-width: $bp-small) {
+            position: unset;
+            top: unset;
+            left: unset;
+            width: 65%;
+            padding: 0;
+
+            flex-direction: row;
+            justify-content: space-between;
+
+            transform: none;
+
+            visibility: visible;
+        }
+
+        &-underlay {
+            position: fixed;
+            z-index: -2;
+            top: $header-height;
+            left: 0;
+            height: calc(100vh - #{$header-height});
+            width: 100vw;
+
+            background-color: rgba(0, 0, 0, 0.6);
+
+            visibility: hidden;
+
+            @media only screen and (min-width: $bp-small) {
+                display: none;
+            }
+        }
+    }
+
+    &__burger {
+        cursor: pointer;
+
+        &-image {
+            height: 20px;
+            width: 20px;
+
+            background-image: url("../../../assets/shared/mobile/menu.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        @media only screen and (min-width: $bp-small) {
+            display: none;
+        }
+    }
+
+    &.active {
+        position: fixed;
+        top: 0;
+    }
+
+    &.active ~ .hero {
+        margin-top: $header-height;
+    }
+
+    &.active > .container &__burger-image {
+        background-image: url("../../../assets/shared/mobile/close.svg");
+    }
+
+    &.active > .container &__nav,
+    &.active > .container &__nav-underlay {
+        visibility: visible;
+    }
+
+    &.active > .container &__nav {
+        transform: translateY(0);
+        z-index: -1;
+    }
+}

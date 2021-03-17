@@ -1,0 +1,8 @@
+@mixin purple-line {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 128px;
+
+    background-image: linear-gradient(to right, $clr-gradient-1, $clr-gradient-2, $clr-gradient-3);
+}

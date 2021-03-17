@@ -1,0 +1,88 @@
+.table {
+    width: 100%;
+    max-width: 730px;
+    margin: 0 auto 60px auto;
+
+    border-collapse: collapse;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    tbody tr {
+        display: flex;
+        flex-wrap: wrap;
+
+        @media only screen and (min-width: $bp-small) {
+            display: table-row;
+        }
+    }
+
+    th, td {
+        padding: 10px 20px;
+    }
+
+    &-main-header {
+        padding-right: 0;
+
+        text-align: left;
+    }
+
+    &-row-headers {
+
+        & th {
+            border-bottom: 1px solid $clr-black;
+        }
+    }
+
+    tr:not([class="table-row-headers"]):not(:last-child) {
+        border-bottom: 1px solid $clr-light-grey;
+    }
+
+    &-product-headers {
+        display: none;
+
+        @media only screen and (min-width: $bp-small) {
+            display: table-cell;
+        }
+    }
+
+    &-col {
+        
+        &-headers { //table-col-headers
+            width: 100%;
+
+            @media only screen and (min-width: $bp-small) {
+                width: auto;
+            }
+        }
+
+        &-product { //table-col-product
+            height: 50px;
+
+            @media only screen and (min-width: $bp-small) {
+                height: auto;
+            }
+
+            &::before {
+                content: attr(data-product);
+                color: rgba($clr-black, 0.5);
+                display: block;
+
+                @media only screen and (min-width: $bp-small) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &-tick { //table-tick
+        margin: 0 auto 0 0;
+
+        @media only screen and (min-width: $bp-small) {
+            margin: 0 auto;
+        }
+    }
+
+}

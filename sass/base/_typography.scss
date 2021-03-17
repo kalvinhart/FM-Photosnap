@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: DM Sans, sans-serif;
+    font-size: 15px;
+}
+
+.h1, .h2{
+    font-weight: 700;
+}
+
+.h2 {
+    font-size: 24px;
+}
+
+body,
+.h2,
+.h3 {
+    line-height: 25px;
+}
+
+.h1, .h2-large {
+    font-size: 32px;
+    letter-spacing: 3.33px;
+    text-transform: uppercase;
+    line-height: 40px;
+
+    @media only screen and (min-width: $bp-small) {
+        font-size: 40px;
+    }
+}
+
+.h3 {
+    font-size: 18px;
+}
+
+.h4 {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.text-light,
+.text-light-opacity {
+    color: $clr-white;
+}
+
+.text-light-opacity {
+    opacity: 0.6;
+}
+
+.text-dark,
+.text-dark-opacity {
+    color: $clr-black;
+}
+
+.text-dark-opacity {
+    opacity: 0.6;
+}

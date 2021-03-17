@@ -1,0 +1,112 @@
+.hero {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(2, max-content);
+
+    @media only screen and (min-width: $bp-small) {
+        grid-template-rows: 100%;
+        grid-template-columns: 1fr 273px;
+    }
+
+    @media only screen and (min-width: $bp-large) {
+        grid-template-columns: 1fr 830px;
+    }
+
+    &__content {
+        position: relative;
+        grid-row: 2 / 3;
+        padding: 60px 30px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        background-color: $clr-black;
+
+        @media only screen and (min-width: $bp-small) {
+            padding: 60px 40px;
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        @media only screen and (min-width: $bp-xl) {
+            padding: 60px 100px;
+        }
+
+        & > *:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        &::before {
+            @include purple-line;
+
+            top: 0;
+            left: 30px;
+
+            @media only screen and (min-width: $bp-small) {
+                top: 50%;
+                left: -61px; // This is half the width of the line minus the 3px height of the line
+                transform: rotate(90deg);
+            }
+
+            @media only screen and (min-width: $bp-large) {
+                width: 300px;
+                left: -147px; // Half the width of the line minus the 3px height of the line
+            }
+        }
+    }
+
+    &-home &__content::before {
+        @media only screen and (min-width: $bp-small) {
+            width: 300px;
+            left: -147px; // Half the width minus half the height
+        }
+    }
+
+    &__title,
+    &__text {
+        max-width: 380px;
+    }
+
+    &__image {
+        width: 100%;
+
+        @media only screen and (min-width: $bp-small) {
+            grid-column: 2 / 3;
+        }
+
+        & img {
+            width: 100%;
+        }
+    }
+}
+
+.hero-stories .hero__content::before {
+    display: none;
+}
+
+.hero-stories {
+    @media only screen and (min-width: $bp-small) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hero-stories .hero__content {
+    @media only screen and (min-width: $bp-small) {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background-color: transparent;
+    }
+
+    @media only screen and (min-width: $bp-med) {
+        top: 30px;
+        left: 30px;
+    }
+}
+
+.hero-stories .hero__image {
+    grid-column: 1 / 2;
+}
